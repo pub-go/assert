@@ -23,21 +23,21 @@ func False(t *testing.T, cond bool, messages ...any) {
 func Equal(t *testing.T, left, right any, messages ...any) {
 	t.Helper()
 	if left != right {
-		t.Errorf(toMsg(messages, "Expected equal, left=%v, right=%v", left, right))
+		t.Errorf(toMsg(messages, "Expected equal, left=%#v, right=%#v", left, right))
 	}
 }
 
 func DeepEqual(t *testing.T, left, right any, messages ...any) {
 	t.Helper()
 	if !reflect.DeepEqual(left, right) {
-		t.Errorf(toMsg(messages, "Expected deep equal, left=%v, right=%v", left, right))
+		t.Errorf(toMsg(messages, "Expected deep equal, left=%#v, right=%#v", left, right))
 	}
 }
 
 func NotEqual(t *testing.T, left, right any, messages ...any) {
 	t.Helper()
 	if left == right {
-		t.Errorf(toMsg(messages, "Expected not equal, left=%v, right=%v", left, right))
+		t.Errorf(toMsg(messages, "Expected not equal, left=%#v, right=%#v", left, right))
 	}
 }
 
@@ -51,7 +51,7 @@ func Nil(t *testing.T, x any, messages ...any) {
 func NotNil(t *testing.T, x any, messages ...any) {
 	t.Helper()
 	if isNil(x) {
-		t.Errorf(toMsg(messages, "Expected not nil, got %v", x))
+		t.Errorf(toMsg(messages, "Expected not nil, got %#v", x))
 	}
 }
 
